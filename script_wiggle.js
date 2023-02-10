@@ -20,12 +20,13 @@ class Enemy { // New class to create enemy objects
         this.height = this.spriteHeigth / 2.5;
         // Randomize enemy position
         this.x = Math.random() * (canvas.width - this.width); // Math.random() generates a number between 0 and 1
-        this.y = Math.random() * (canvas.height - this.height);
+        this.y = Math.random() * (canvas.height - this.height); // Make sure enemies fit on the canvas
         this.frame = 0; // Keep track of frames
         // Randomize wing flapping (animation speed)
         this.flapSpeed = Math.floor(Math.random() * 3 + 1); // Get a random number from 1 to 4 and make sure it's an int
     }
     update() { // A custom class method to control enemy movement
+        // Make enemies wiggle in place
         this.x += Math.random() * 8 - 4;
         this.y += Math.random() * 8 - 4;
         // Run the animation every other frame to slow it down x2
