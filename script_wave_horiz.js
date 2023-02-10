@@ -61,9 +61,6 @@ for (let i = 0; i < numberEnemies; i++) {
 // The following can be used to print things to the console and make sure they're OK:
 // console.log(enemies);
 
-let sin = Math.sin(1);
-console.log(sin);
-
 function animate() {
     context.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT); // Make sure no artifacts from the last frame remain
     // For each element of the array call the function with "enemy" as a placeholder for each element
