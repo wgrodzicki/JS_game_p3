@@ -3,7 +3,7 @@ const canvas = document.getElementById("canvas1");
 const context = canvas.getContext("2d");
 CANVAS_WIDTH = canvas.width = 500;
 CANVAS_HEIGHT = canvas.height = 1000;
-const numberEnemies = 20; // How many enemies we want
+const numberEnemies = 100; // How many enemies we want
 const enemies = []; // Empty array to store enemies
 let gameFrame = 0; // Variable to keep track of frames
 
@@ -11,12 +11,12 @@ class Enemy { // New class to create enemy objects
     constructor() {
         // Get the enemy sprite sheet
         this.image = new Image();
-        this.image.src = "resources/enemy2.png";
+        this.image.src = "resources/enemy3.png";
         // Randomize enemy speed
         this.speed = Math.random() * 4 + 1;
         // Size of a single image on the sprite sheet
-        this.spriteWidth = 266;
-        this.spriteHeigth = 188;
+        this.spriteWidth = 218;
+        this.spriteHeigth = 177;
         // Determine enemy size
         this.width = this.spriteWidth / 2.5;
         this.height = this.spriteHeigth / 2.5;
@@ -26,15 +26,18 @@ class Enemy { // New class to create enemy objects
         this.frame = 0; // Keep track of frames
         // Randomize wing flapping (animation speed)
         this.flapSpeed = Math.floor(Math.random() * 3 + 1); // Get a random number from 1 to 4 and make sure it's an int
-        this.angle = Math.random() * 2; // Randomize the starting position on the wave
-        this.angleSpeed = Math.random() * 0.2; // Randomize the speed at which the angle increases
-        this.curve = Math.random() * 7; // Randomize the amplitude
+        this.angle = 40; // Starting position on the horizontal wave
+        this.angleSpeed = Math.random() * 2 + 0.5; // Randomize the speed at which the angle increases and cap it between 0.5 and 2.5
     }
     update() { // A custom class method to control enemy movement
-        this.x -= this.speed;
-        // Make the vertical movement wavy by using trigonometry (sine wave)
-        // Math.sin() returns the sin of the number, i.e. values 0-1
-        this.y += this.curve * Math.sin(this.angle); // Multiplying the value increases the amplitude of the wave
+        // Make the horizontal movement wavy by using trigonometry (sine wave)
+        // this.angle * Math.PI/180 converts the value to radians - expected argument for the sin() method, slowing down the movement
+        // Make sure enemies occupy the entire canvas horizontally but still fit in the borders
+        this.x = canvas.width / 2 * Math.sin(this.angle * Math.PI/90) + (canvas.width / 2 - this.width / 2);
+        // Together with cosine on the y axis it creates more complex movement patterns
+        // The movement pattern can be controlled by changing 180 above and below to different values!
+        // Make sure enemies occupy the entire canvas vertically but still fit in the borders
+        this.y = canvas.height / 2 * Math.cos(this.angle * Math.PI/180) + (canvas.height / 2 - this.height / 2);
         this.angle += this.angleSpeed; // Keep increasing the random angle by random speed
         // The following check creates an endless flow of enemies right -> left
         if (this.x + this.width < 0) {
