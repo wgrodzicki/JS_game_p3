@@ -29,7 +29,7 @@ class Enemy { // New class to create enemy objects
         // Make enemies wiggle in place
         this.x += Math.random() * 8 - 4;
         this.y += Math.random() * 8 - 4;
-        // Run the animation every other frame to slow it down x2
+        // Run the animation depending on flapSpeed
         if (gameFrame % this.flapSpeed == 0) { // Works fine when flapSpeed is an int (modulus doesn't work with floats as divisors!)
             // Ternary operator equivalent to:
             // If value > 4, then set value to 0
