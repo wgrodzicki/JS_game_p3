@@ -14,15 +14,15 @@ class Enemy { // New class to create enemy objects
         this.image.src = "resources/enemy2.png";
         // Randomize enemy speed
         this.speed = Math.random() * 4 + 1;
-        // Randomize enemy position
-        this.x = Math.random() * (canvas.width - this.width); // Math.random() generates a number between 0 and 1
-        this.y = Math.random() * (canvas.height - this.height); // Make sure enemies fit on the canvas
         // Size of a single image on the sprite sheet
         this.spriteWidth = 266;
         this.spriteHeigth = 188;
         // Determine enemy size
         this.width = this.spriteWidth / 2.5;
         this.height = this.spriteHeigth / 2.5;
+        // Randomize enemy position
+        this.x = Math.random() * (canvas.width - this.width); // Math.random() generates a number between 0 and 1
+        this.y = Math.random() * (canvas.height - this.height); // Make sure enemies fit on the canvas
         this.frame = 0; // Keep track of frames
         // Randomize wing flapping (animation speed)
         this.flapSpeed = Math.floor(Math.random() * 3 + 1); // Get a random number from 1 to 4 and make sure it's an int
