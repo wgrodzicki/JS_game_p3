@@ -24,7 +24,7 @@ class Enemy { // New class to create enemy objects
         this.x = Math.random() * (canvas.width - this.width); // Math.random() generates a number between 0 and 1
         this.y = Math.random() * (canvas.height - this.height); // Make sure enemies fit on the canvas
         this.frame = 0; // Keep track of frames
-        // Randomize wing flapping (animation speed)
+        // Randomize animation speed
         this.flapSpeed = Math.floor(Math.random() * 3 + 1); // Get a random number from 1 to 4 and make sure it's an int
         this.angle = 40; // Starting position on the horizontal wave
         this.angleSpeed = Math.random() * 2 + 0.5; // Randomize the speed at which the angle increases and cap it between 0.5 and 2.5
