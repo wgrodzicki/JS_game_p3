@@ -48,7 +48,7 @@ for (let i = 0; i < numberEnemies; i++) {
     enemies[i] = new Enemy();
 }
 
-// This can be used to print things to the console and make sure they're OK:
+// The following can be used to print things to the console and make sure they're OK:
 // console.log(enemies);
 
 function animate() {
