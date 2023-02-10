@@ -25,7 +25,7 @@ class Enemy { // New class to create enemy objects
         this.height = this.spriteHeigth / 2.5;
         this.frame = 0; // Keep track of frames
         // Randomize wing flapping (animation speed)
-        this.flapSpeed = Math.floor(Math.random() * 4 + 1); // Get a random number from 1 to 4 and make sure it's an int
+        this.flapSpeed = Math.floor(Math.random() * 3 + 1); // Get a random number from 1 to 4 and make sure it's an int
         this.angle = Math.random() * 2; // Randomize the starting position on the wave
         this.angleSpeed = Math.random() * 0.2; // Randomize the speed at which the angle increases
         this.curve = Math.random() * 7; // Randomize the amplitude
