@@ -15,8 +15,8 @@ class Enemy { // New class to create enemy objects
         // Randomize enemy speed
         this.speed = Math.random() * 4 + 1;
         // Randomize enemy position
-        this.x = Math.random() * canvas.width; // Math.random() generates a number between 0 and 1
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * (canvas.width - this.width); // Math.random() generates a number between 0 and 1
+        this.y = Math.random() * (canvas.height - this.height); // Make sure enemies fit on the canvas
         // Size of a single image on the sprite sheet
         this.spriteWidth = 266;
         this.spriteHeigth = 188;
